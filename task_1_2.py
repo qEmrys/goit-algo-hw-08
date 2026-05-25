@@ -44,3 +44,11 @@ class BinarySearchTree:
         while current.left is not None:
             current = current.left
         return current.key
+
+    def sum_all(self):
+        return self._sum_all_recursive(self.root)
+    
+    def _sum_all_recursive(self, node):
+        if node is None:
+            return 0
+        return node.key + self._sum_all_recursive(node.left) + self._sum_all_recursive(node.right)
